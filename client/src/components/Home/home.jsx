@@ -1,11 +1,15 @@
 import React from "react";
 import Hero from "./Hero/hero";
-import WhatIDO from "./WhatIDo/whatIDo"
+import WhatIDoFrontEnd from "./WhatIDo/whatIDoFrontEnd";
+import WhatIDoBackEnd from "./WhatIDo/whatIDobackEnd";
+import WhatIDoUIUX from "./WhatIDo/whatIDoUIUX";
 const Home = () => {
   return (
     <div>
       <Hero />
-      <WhatIDO />
+      <WhatIDoFrontEnd />
+      <WhatIDoBackEnd />
+      <WhatIDoUIUX />
     </div>
   );
 };

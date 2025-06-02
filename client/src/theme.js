@@ -8,7 +8,7 @@ const lightTheme = createTheme({
       main: "#f4e6c9", // Deep blue for primary elements
       light: "#42A5F5",
       dark: "#1565C0",
-      contrastText: "#3d464b",
+      contrastText: "#000000",
     },
     secondary: {
       main: "#D81B60", // Vibrant pink for secondary elements

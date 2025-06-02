@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { ThemeContext } from "../../../themeContext";
-import HeroLight from "../../../images/heroLight.png";
-import HeroDark from "../../../images/heroDark.png";
-import HeroLightTablet from "../../../images/heroLightTablet.png"; // Import tablet image for light mode
-import HeroDarkTablet from "../../../images/heroDarkTablet.png"; // Import tablet image for dark mode
-import HeroLightMobile from "../../../images/heroLightMobile.png"; // Import mobile image for light mode
-import HeroDarkMobile from "../../../images/heroDarkMobile.png"; // Import mobile image for dark mode
+import HeroLight from "../../../images/hero/heroLight.png";
+import HeroDark from "../../../images/hero/heroDark.png";
+import HeroLightTablet from "../../../images/hero/heroLightTablet.png"; // Import tablet image for light mode
+import HeroDarkTablet from "../../../images/hero/heroDarkTablet.png"; // Import tablet image for dark mode
+import HeroLightMobile from "../../../images/hero/heroLightMobile.png"; // Import mobile image for light mode
+import HeroDarkMobile from "../../../images/hero/heroDarkMobile.png"; // Import mobile image for dark mode
 import { Typography } from "@mui/material";
 
 const Hero = () => {
@@ -79,7 +79,7 @@ const Hero = () => {
           backgroundSize: windowWidth < 600 ? "cover" : "cover",
           backgroundPosition: "center",
           backgroundAttachment: windowWidth < 600 ? "scroll" : "scroll", // Prevents fixed issues on mobile
-          minHeight: "100vh",
+          minHeight: "92vh",
           minWidth: "100vw", // Full viewport width for mobile
           width: "100%",
           height: "100%",
