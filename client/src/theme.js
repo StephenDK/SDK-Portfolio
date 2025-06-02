@@ -5,16 +5,16 @@ const lightTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#1976D2", // Deep blue for primary elements
+      main: "#f4e6c9", // Deep blue for primary elements
       light: "#42A5F5",
       dark: "#1565C0",
-      contrastText: "#FFFFFF",
+      contrastText: "#4a676d",
     },
     secondary: {
       main: "#D81B60", // Vibrant pink for secondary elements
       light: "#F06292",
       dark: "#AD1457",
-      contrastText: "#FFFFFF",
+      contrastText: "#643d20",
     },
     background: {
       default: "#F5F5F5", // Light gray for app background
@@ -31,10 +31,10 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#90CAF9", // Lighter blue for visibility in dark mode
+      main: "#081d38",
       light: "#E3F2FD",
       dark: "#42A5F5",
-      contrastText: "#000000", // Black text for contrast
+      contrastText: "#ffffff", // Black text for contrast
     },
     secondary: {
       main: "#F48FB1", // Lighter pink for dark mode

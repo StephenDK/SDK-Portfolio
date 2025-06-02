@@ -1,12 +1,19 @@
-// ThemeContext.js
-import React, { createContext, useState, useMemo } from "react";
-import { ThemeProvider } from "@mui/material/styles"; // Added missing import
+import React, { createContext, useState, useMemo, useEffect } from "react";
+import { ThemeProvider } from "@mui/material/styles";
 import { lightTheme, darkTheme } from "./theme";
 
 export const ThemeContext = createContext();
 
 export const ThemeProviderWrapper = ({ children }) => {
-  const [mode, setMode] = useState("light"); // Default to light mode
+  // Initialize theme from localStorage or default to "light"
+  const [mode, setMode] = useState(
+    () => localStorage.getItem("theme") || "light"
+  );
+
+  // Save theme to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("theme", mode);
+  }, [mode]);
 
   const toggleTheme = () => {
     setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
