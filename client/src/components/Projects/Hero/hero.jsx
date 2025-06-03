@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 
 import CapAndDiploma from "../../../images/education/cap-diploma.png";
 
-const EducationHero = () => {
+const ProjectHero = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -57,7 +57,7 @@ const EducationHero = () => {
                   src={CapAndDiploma}
                   alt="Education Placeholder"
                   sx={{
-                    width: "500px",
+                    width: "350px",
                     height: "auto",
                     borderRadius: 2,
                     boxShadow: 3,
@@ -92,16 +92,23 @@ const EducationHero = () => {
                     mb: 2,
                   }}
                 >
-                  Education
+                  Projects
                 </Typography>
                 <Typography
                   variant="h5"
                   sx={{
                     textAlign: "center",
                     fontWeight: "medium",
+                    maxWidth: "630px",
                   }}
                 >
-                  Qualifications and Certifications
+                  My projects incorporate a wide range of modern technologies,
+                  combining full-stack development with thoughtful UI/UX design.
+                  I specialize in building and deploying dynamic web
+                  applications using the MERN stack, with seamless integration
+                  of front-end interfaces and backend functionality. I also have
+                  experience deploying these applications to the cloud for
+                  scalability and performance.
                 </Typography>
               </Box>
             </Grid>
@@ -112,4 +119,4 @@ const EducationHero = () => {
   );
 };
 
-export default EducationHero;
+export default ProjectHero;

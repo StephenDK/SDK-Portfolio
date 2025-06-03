@@ -9,6 +9,9 @@ import ProtectedLayout from "./components/Navbar/protectedLayout";
 // Home
 import Home from "./components/Home/home";
 import Eduction from "./components/Education/education";
+import Experience from "./components/Experience/experience";
+import Projects from "./components/Projects/projects";
+import ContactMe from "./components/Contact/contactMe";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/education" element={<Eduction />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact-me" element={<ContactMe />} />
         </Route>
       </Routes>
       {/* <Alert /> */}
