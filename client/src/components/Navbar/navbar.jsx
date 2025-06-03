@@ -120,7 +120,12 @@ function Navbar() {
         sx={{ display: { xs: "block", md: "none" }, zIndex: 10 }}
       >
         {pages.map((page) => (
-          <MenuItem key={page} onClick={handleCloseNavMenu}>
+          <MenuItem
+            key={page}
+            onClick={handleCloseNavMenu}
+            component={Link}
+            to={`/${page.toLowerCase().replace(" ", "-")}`}
+          >
             <Typography sx={{ textAlign: "center", color: "text.primary" }}>
               {page}
             </Typography>
@@ -148,6 +153,8 @@ function Navbar() {
               py: 1,
               zIndex: 10,
             }}
+            component={Link}
+            to={`/${page.toLowerCase().replace(" ", "-")}`}
           >
             {page}
           </Button>

@@ -8,6 +8,7 @@ import ProtectedLayout from "./components/Navbar/protectedLayout";
 
 // Home
 import Home from "./components/Home/home";
+import Eduction from "./components/Education/education";
 
 function App() {
   return (
@@ -16,9 +17,7 @@ function App() {
         {/* Public Routes */}
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<Home />} />
-          {/*<Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />} /> */}
+          <Route path="/education" element={<Eduction />} />
         </Route>
       </Routes>
       {/* <Alert /> */}
