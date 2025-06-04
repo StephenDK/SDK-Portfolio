@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 
 import CapAndDiploma from "../../../images/education/cap-diploma.png";
 
-const EducationHero = () => {
+const ProjectHero = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -92,16 +92,23 @@ const EducationHero = () => {
                     mb: 2,
                   }}
                 >
-                  Education
+                  Experience
                 </Typography>
                 <Typography
                   variant="h5"
                   sx={{
                     textAlign: "center",
                     fontWeight: "medium",
+                    maxWidth: "630px",
                   }}
                 >
-                  Qualifications and Certifications
+                  I have worked as an Information Technology Specialist,
+                  applying my skills to provide support and solve complex
+                  problems. I enjoy collaborating on projects that drive
+                  efficiency and streamline operations. Currently, I’m focused
+                  on using my expertise to develop software services that help
+                  small businesses improve their workflows and grow through
+                  tailored technology solutions.
                 </Typography>
               </Box>
             </Grid>
@@ -112,4 +119,4 @@ const EducationHero = () => {
   );
 };
 
-export default EducationHero;
+export default ProjectHero;

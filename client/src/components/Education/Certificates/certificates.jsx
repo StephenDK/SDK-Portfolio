@@ -38,8 +38,8 @@ export default function Certificates() {
     },
     {
       id: 3,
-      name: "Cloud Computing",
-      program: "AWS Training",
+      name: "React Nano Degree",
+      program: "Udacity",
     },
     {
       id: 4,
