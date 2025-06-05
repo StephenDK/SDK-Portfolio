@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid, Typography, Box, Container, Stack } from "@mui/material";
 import { motion } from "framer-motion";
+import { ThemeContext } from "../../../themeContext";
 import { useInView } from "react-intersection-observer";
 import StarIcon from "@mui/icons-material/Star"; // Star icon for text
 import HTML from "../../../images/icons/html.svg";
@@ -8,7 +9,11 @@ import JAVASCRIPT from "../../../images/icons/javascript.svg";
 import CSS from "../../../images/icons/css.svg";
 import REACT from "../../../images/icons/react.svg";
 
+import FrontEndLight from "../../../images/whatIDo/front-end-light.png";
+import FrontEndDark from "../../../images/whatIDo/front-end-dark.png";
+
 const WhatIDoFrontEnd = () => {
+  const { mode } = useContext(ThemeContext);
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -74,11 +79,11 @@ const WhatIDoFrontEnd = () => {
               >
                 <Box
                   component="img"
-                  src="https://placehold.co/300x400"
+                  src={mode === "dark" ? FrontEndDark : FrontEndLight}
                   alt="My Work"
                   sx={{
                     width: "100%",
-                    maxWidth: "300px",
+                    maxWidth: "340px",
                     height: "auto",
                     borderRadius: 2,
                     boxShadow: 3,

@@ -3,7 +3,7 @@ import { Grid, Typography, Box, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import CapAndDiploma from "../../../images/education/cap-diploma.png";
+import ExperienceHero from "../../../images/experience/experience-hero.png";
 
 const ProjectHero = () => {
   const { ref, inView } = useInView({
@@ -54,11 +54,11 @@ const ProjectHero = () => {
               >
                 <Box
                   component="img"
-                  src={CapAndDiploma}
+                  src={ExperienceHero}
                   alt="Education Placeholder"
                   sx={{
-                    width: "350px",
-                    height: "auto",
+                    width: "400px",
+                    height: "350px",
                     borderRadius: 2,
                     boxShadow: 3,
                     display: "block",

@@ -72,7 +72,10 @@ const ContactMeForm = () => {
         createdAt: new Date().toISOString(),
       };
       // Replace '/api/messages' with your actual API endpoint
-      await axios.post("/api/messages", payload);
+      await axios.post(
+        "http://localhost:8080/api/v1/message/new-message",
+        payload
+      );
       setIsSubmitted(true);
     } catch (error) {
       if (error.response && error.response.status === 400) {

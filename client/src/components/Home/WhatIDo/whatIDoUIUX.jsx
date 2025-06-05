@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react"; // Add useContext import
+import { ThemeContext } from "../../../themeContext"; // Ensure ThemeContext is imported
 import { Grid, Typography, Box, Container, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import StarIcon from "@mui/icons-material/Star"; // Star icon for text
+import StarIcon from "@mui/icons-material/Star";
 import FIGMA from "../../../images/icons/figma.svg";
 import ADOBEXD from "../../../images/icons/adobexd.svg";
 import MIRO from "../../../images/icons/miro.svg";
 import JIRA from "../../../images/icons/jira.svg";
+import LowFidelityImageLight from "../../../images/whatIDo/low-fidelity-light.png";
+import LowFidelityImageDark from "../../../images/whatIDo/low-fidelity-dark.png";
 
 const WhatIDo = () => {
+  const { mode } = useContext(ThemeContext); // Access mode from ThemeContext
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -65,11 +69,15 @@ const WhatIDo = () => {
               >
                 <Box
                   component="img"
-                  src="https://placehold.co/300x400"
+                  src={
+                    mode === "dark"
+                      ? LowFidelityImageDark
+                      : LowFidelityImageLight
+                  } // Conditional image source
                   alt="My Work"
                   sx={{
                     width: "100%",
-                    maxWidth: "300px",
+                    maxWidth: "340px",
                     height: "auto",
                     borderRadius: 2,
                     boxShadow: 3,

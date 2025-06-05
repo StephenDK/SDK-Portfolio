@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid, Typography, Box, Container, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { ThemeContext } from "../../../themeContext"; // Ensure ThemeContext is imported
 
 import StarIcon from "@mui/icons-material/Star"; // Star icon for text
 import NODEJS from "../../../images/icons/nodejs.svg";
@@ -9,7 +10,11 @@ import MONGODB from "../../../images/icons/mongodb.svg";
 import MYSQL from "../../../images/icons/mysql.svg";
 import CPLUSPLUS from "../../../images/icons/c.svg";
 
+import BackendServersLight from "../../../images/whatIDo/backend-servers-light.png";
+import BackendServersDark from "../../../images/whatIDo/backend-servers-dark.png";
+
 const WhatIDo = () => {
+  const { mode } = useContext(ThemeContext);
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -213,11 +218,13 @@ const WhatIDo = () => {
               >
                 <Box
                   component="img"
-                  src="https://placehold.co/300x400"
+                  src={
+                    mode === "dark" ? BackendServersDark : BackendServersLight
+                  }
                   alt="My Work"
                   sx={{
                     width: "100%",
-                    maxWidth: "300px",
+                    maxWidth: "340px",
                     height: "auto",
                     borderRadius: 2,
                     boxShadow: 3,

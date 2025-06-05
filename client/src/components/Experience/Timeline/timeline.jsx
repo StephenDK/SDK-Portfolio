@@ -8,99 +8,95 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import TimelineOppositeContent, {
-  timelineOppositeContentClasses,
-} from "@mui/lab/TimelineOppositeContent";
+import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import { motion } from "framer-motion";
+import ExperienceData from "../experiences.json";
 
 export default function TimelineComponent({ events = [] }) {
-  // Default events if none provided
-  const defaultEvents = [
-    {
-      workplace: "County of Santa Clara",
-      position: "Information Technology Specialist",
-      description:
-        "An IT Specialist is responsible for managing, supporting, and maintaining an organization’s technology infrastructure. This includes troubleshooting hardware and software issues, setting up and configuring systems, ensuring network and data security, and providing technical support to end-users. The role often involves collaborating with other departments to implement technology solutions that improve operational efficiency and align with business goals.",
-      year: "2024",
-    },
-    {
-      workplace: "Tech Corp",
-      position: "Software Engineer",
-      description:
-        "An IT Specialist is responsible for managing, supporting, and maintaining an organization’s technology infrastructure. This includes troubleshooting hardware and software issues, setting up and configuring systems, ensuring network and data security, and providing technical support to end-users. The role often involves collaborating with other departments to implement technology solutions that improve operational efficiency and align with business goals.",
-      year: "2024",
-    },
-    {
-      workplace: "City Hospital",
-      position: "Systems Analyst",
-      description:
-        "Analyzed and optimized hospital IT systems to ensure seamless operation of patient management software. Provided training and support to staff on new technology implementations.",
-      year: "2024",
-    },
-  ];
+  const timelineEvents = events.length > 0 ? events : ExperienceData;
 
-  const timelineEvents = events.length > 0 ? events : defaultEvents;
+  // Animation variants for the card
+  const cardVariants = {
+    hidden: { opacity: 0, x: 100 }, // Start off-screen to the right
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
-    <div>
-      <div>
-        <Typography
-          variant="h4"
-          component="h2"
-          gutterBottom
-          sx={{
-            textAlign: { xs: "center" },
-            margin: { xs: "16px 0", sm: "24px 0" },
-            fontWeight: "bold",
-            color: "text.primary",
-          }}
-        >
-          Work
-        </Typography>
-      </div>
-      <div>
-        <Timeline
-          sx={{
-            padding: { xs: "0 8px", sm: "0 16px" },
-            margin: 0,
-            "& .MuiTimelineItem-root": {
-              paddingLeft: { xs: 0, sm: "16px" },
-            },
-            "& .MuiTimelineItem-missingOppositeContent:before": {
-              display: "none", // Remove extra padding
-            },
-          }}
-        >
-          {timelineEvents.map((event, index) => (
-            <TimelineItem key={index}>
-              <TimelineOppositeContent
+    <div
+      sx={{
+        maxWidth: "1200px", // Constrain the width to a reasonable maximum
+        margin: "0 auto", // Center the entire component horizontally
+        width: "100%",
+      }}
+    >
+      <Typography
+        variant="h4"
+        component="h2"
+        gutterBottom
+        sx={{
+          textAlign: { xs: "center" },
+          margin: { xs: "16px 0", sm: "24px 0" },
+          fontWeight: "bold",
+          color: "text.primary",
+        }}
+      >
+        Work
+      </Typography>
+      <Timeline
+        sx={{
+          padding: { xs: "0 8px", sm: "0 16px" },
+          mb: 6,
+          width: "100%",
+          "& .MuiTimelineItem-root": {
+            paddingLeft: { xs: 0, sm: "16px" },
+          },
+        }}
+      >
+        {timelineEvents.map((event, index) => (
+          <TimelineItem key={index}>
+            <TimelineOppositeContent
+              sx={{
+                color: "text.secondary",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center", // Center horizontally
+                textAlign: "center", // Center text
+                typography: { xs: "caption", sm: "body2" }, // Smaller text on mobile
+                flex: { xs: 0.01, sm: 0.15 }, // Narrower on mobile (xs), slightly wider on larger screens (sm)
+                padding: { xs: "6px 4px", sm: "6px 8px" }, // Reduce padding on mobile for compactness
+              }}
+            >
+              {event.year}
+            </TimelineOppositeContent>
+            <TimelineSeparator>
+              <TimelineDot
                 sx={{
-                  color: "text.secondary",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center", // Center horizontally
-                  textAlign: "center", // Center text
-                  typography: { xs: "caption", sm: "body2" }, // Smaller text on mobile
-                  flex: { xs: 0.01, sm: 0.15 }, // Narrower on mobile (xs), slightly wider on larger screens (sm)
-                  padding: { xs: "6px 4px", sm: "6px 8px" }, // Reduce padding on mobile for compactness
+                  bgcolor: "primary.main",
+                  margin: { xs: "6px 0", sm: "6px 0" },
                 }}
-              >
-                {event.year}
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot
-                  sx={{
-                    bgcolor: "primary.main",
-                    margin: { xs: "6px 0", sm: "6px 0" },
-                  }}
-                />
-                {index < timelineEvents.length - 1 && <TimelineConnector />}
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{
-                  padding: { xs: "6px 8px", sm: "6px 16px" },
-                  display: "flex",
-                  alignItems: "center",
-                }}
+              />
+              {index < timelineEvents.length - 1 && <TimelineConnector />}
+            </TimelineSeparator>
+            <TimelineContent
+              sx={{
+                padding: { xs: "6px 8px", sm: "6px 16px" },
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+                style={{ width: "100%" }}
               >
                 <Card
                   sx={{
@@ -122,17 +118,16 @@ export default function TimelineComponent({ events = [] }) {
                     <Typography variant="h6" component="div" gutterBottom>
                       {event.workplace}
                     </Typography>
-
                     <Typography variant="body1" color="text.primary">
                       {event.description}
                     </Typography>
                   </CardContent>
                 </Card>
-              </TimelineContent>
-            </TimelineItem>
-          ))}
-        </Timeline>
-      </div>
+              </motion.div>
+            </TimelineContent>
+          </TimelineItem>
+        ))}
+      </Timeline>
     </div>
   );
 }
