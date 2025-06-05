@@ -111,12 +111,26 @@ export default function Schools() {
                 component="div"
                 sx={{ color: "text.secondary" }}
               >
-                B.S Computer Science
+                B.S - Computer Science
               </Typography>
               <Typography variant="body1" sx={{ mt: 2 }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco.
+                During my undergraduate studies in Computer Science, I gained a
+                strong foundation in both theoretical and practical aspects of
+                computing. My coursework covered a wide range of topics
+                including programming, software engineering, operating systems,
+                data structures, web and mobile development, computer networks,
+                artificial intelligence, and computer hardware architecture. I
+                developed skills in designing, implementing, and evaluating
+                software systems, while also learning to analyze computational
+                problems using mathematical and algorithmic principles. Through
+                collaborative projects and individual assignments, I learned to
+                apply current industry tools and technologies, while adhering to
+                ethical and professional standards. This program equipped me to
+                think critically, work effectively in team settings, and
+                communicate technical concepts clearly. My academic performance
+                earned me a place on the Dean’s List, reflecting my commitment
+                to excellence and continuous learning in the field of Computer
+                Science.
               </Typography>
             </CardContent>
           </Box>
@@ -168,12 +182,23 @@ export default function Schools() {
                 component="div"
                 sx={{ color: "text.secondary" }}
               >
-                Liberal Arts Math, Science, Engineering Emphasis
+                AA - Liberal Arts (Science, Math and Engineering Emphasis)
               </Typography>
               <Typography variant="body1" sx={{ mt: 2 }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco.
+                This degree provided a strong interdisciplinary foundation in
+                mathematics, science, and engineering, while developing
+                essential skills in critical thinking, quantitative reasoning,
+                and problem solving. I completed coursework designed for
+                transfer to a four-year university, gaining exposure to
+                scientific principles, mathematical analysis, and engineering
+                concepts. The program also emphasized effective communication,
+                collaboration, and adaptability—skills that are essential in
+                today’s diverse and evolving workforce. Through a broad-based
+                education, I learned to approach problems from multiple
+                perspectives and apply logical reasoning across technical and
+                real-world challenges. This experience has prepared me to
+                continue growing in both academic and professional environments
+                where technical skills and versatility are highly valued.
               </Typography>
             </CardContent>
           </Box>

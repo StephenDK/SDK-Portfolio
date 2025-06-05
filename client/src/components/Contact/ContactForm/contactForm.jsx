@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Box,
@@ -15,15 +15,36 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 const ContactMeForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    message: "",
+  const [formData, setFormData] = useState(() => {
+    // Initialize formData from localStorage if available
+    const savedData = localStorage.getItem("contactFormData");
+    return savedData
+      ? JSON.parse(savedData)
+      : {
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+        };
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Check localStorage for submission status on component mount
+  useEffect(() => {
+    const hasSubmitted = localStorage.getItem("hasSubmitted") === "true";
+    if (hasSubmitted) {
+      setIsSubmitted(true);
+    }
+  }, []);
+
+  // Save formData to localStorage whenever it changes
+  useEffect(() => {
+    if (!isSubmitted) {
+      localStorage.setItem("contactFormData", JSON.stringify(formData));
+    }
+  }, [formData, isSubmitted]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,12 +92,14 @@ const ContactMeForm = () => {
         message: formData.message.trim(),
         createdAt: new Date().toISOString(),
       };
-      // Replace '/api/messages' with your actual API endpoint
       await axios.post(
         "http://localhost:8080/api/v1/message/new-message",
         payload
       );
       setIsSubmitted(true);
+      // Clear localStorage on successful submission
+      localStorage.removeItem("contactFormData");
+      localStorage.setItem("hasSubmitted", "true");
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setErrors({
