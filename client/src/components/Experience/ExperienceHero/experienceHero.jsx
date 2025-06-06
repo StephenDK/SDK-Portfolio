@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid, Typography, Box, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { ThemeContext } from "../../../themeContext";
 
-import ExperienceHero from "../../../images/experience/experience-hero.png";
+import ExperienceHeroLight from "../../../images/experience/experience-hero-light.png";
+import ExperienceHeroDark from "../../../images/experience/experience-hero-dark.png";
 
 const ProjectHero = () => {
+  const { mode } = useContext(ThemeContext);
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -54,7 +57,9 @@ const ProjectHero = () => {
               >
                 <Box
                   component="img"
-                  src={ExperienceHero}
+                  src={
+                    mode === "dark" ? ExperienceHeroDark : ExperienceHeroLight
+                  }
                   alt="Education Placeholder"
                   sx={{
                     width: "400px",
