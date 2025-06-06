@@ -93,7 +93,7 @@ const ContactMeForm = () => {
         createdAt: new Date().toISOString(),
       };
       await axios.post(
-        "http://localhost:8080/api/v1/message/new-message",
+        "https://stephendavidklein-c963011f593c.herokuapp.com/api/v1/message/new-message",
         payload
       );
       setIsSubmitted(true);
