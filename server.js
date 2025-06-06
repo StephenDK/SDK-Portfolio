@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/dbConfig");
 
 // Load environment variables
-dotenv.config({ path: "./config/config.env" });
+// dotenv.config({ path: "./config/config.env" });
 
 // Connect Database
 connectDB();
@@ -17,9 +17,12 @@ const errorHandler = require("./middleware/error");
 const PORT = process.env.PORT || 8080;
 
 // CORS Options
-const corsOptions = {
-  origin: "http://localhost:3000",
-};
+// const corsOptions = {
+//   origin:
+//     process.env.NODE_ENV === "production"
+//       ? "https://stephendavidklein-c963011f593c.herokuapp.com/"
+//       : "http://localhost:3000",
+// };
 
 // Init Express App
 const app = express();
@@ -29,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // Cors
-app.use(cors(corsOptions));
+app.use(cors());
 // Configure app to use cookie parser
 
 // Server static route to client
