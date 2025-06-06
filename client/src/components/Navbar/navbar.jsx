@@ -126,7 +126,7 @@ function Navbar() {
             component={Link}
             to={`/${page.toLowerCase().replace(" ", "-")}`}
           >
-            <Typography sx={{ textAlign: "center", color: "text.primary" }}>
+            <Typography variant="h6" sx={{ textAlign: "center", color: "text.primary" }}>
               {page}
             </Typography>
           </MenuItem>
@@ -156,7 +156,10 @@ function Navbar() {
             component={Link}
             to={`/${page.toLowerCase().replace(" ", "-")}`}
           >
+          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
             {page}
+
+          </Typography>
           </Button>
         ))}
       </Box>
@@ -169,7 +172,7 @@ function Navbar() {
             to="/"
             sx={{ color: "primary.contrastText", p: 1, zIndex: 10 }}
           >
-            <HomeIcon />
+            <HomeIcon fontSize="large"/>
           </IconButton>
         </Tooltip>
         <Tooltip
@@ -179,7 +182,7 @@ function Navbar() {
             onClick={toggleTheme}
             sx={{ ml: 2, color: "primary.contrastText", p: 1, zIndex: 10 }}
           >
-            {mode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
+            {mode === "light" ? <DarkModeIcon fontSize="large"/> : <LightModeIcon fontSize="large"/>}
           </IconButton>
         </Tooltip>
       </Box>

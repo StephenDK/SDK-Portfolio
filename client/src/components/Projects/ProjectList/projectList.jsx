@@ -40,6 +40,9 @@ const StyledCard = styled(Card)(({ theme }) => ({
     transform: "scale(1.05)",
     boxShadow: theme.shadows[8],
   },
+  display: "flex", // Make card a flex container
+  flexDirection: "column", // Stack children vertically
+  height: "520px", // Fixed height for all cards
 }));
 
 const CardLink = styled("a")({
@@ -94,8 +97,6 @@ const getProjectImage = (title) => {
   switch (title) {
     case "TrackerApp":
       return TrackerAppImage;
-    // case "E-Commerce Platform":
-    //   return ECommerceImage;
     case "Urban Gold":
       return UrbanGold;
     case "SDK Portfolio":
@@ -233,13 +234,22 @@ export default function ProjectsList() {
                     image={getProjectImage(project.title)}
                     alt={`${project.title} Preview`}
                   />
-                  <CardContent sx={{ textAlign: "center", p: 2 }}>
+                  <CardContent sx={{ textAlign: "center", p: 2, flexGrow: 1, display: "flex", flexDirection: "column" }}>
                     <Typography gutterBottom variant="h5" component="div">
                       {project.title}
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ color: "text.secondary", mb: 2 }}
+                      sx={{ 
+                        color: "text.secondary", 
+                        mb: 2, 
+                        flexGrow: 1, 
+                        overflow: "hidden", 
+                        textOverflow: "ellipsis", 
+                        display: "-webkit-box", 
+                        WebkitLineClamp: 4, 
+                        WebkitBoxOrient: "vertical" 
+                      }}
                     >
                       {project.description}
                     </Typography>
