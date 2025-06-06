@@ -79,7 +79,7 @@ const Hero = () => {
           backgroundSize: windowWidth < 600 ? "cover" : "cover",
           backgroundPosition: "center",
           backgroundAttachment: windowWidth < 600 ? "scroll" : "scroll", // Prevents fixed issues on mobile
-          minHeight: "92vh",
+          minHeight: "85vh",
           minWidth: "100vw", // Full viewport width for mobile
           width: "100%",
           height: "100%",
