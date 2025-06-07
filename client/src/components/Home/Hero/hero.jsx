@@ -121,14 +121,16 @@ const Hero = () => {
           variant="h2"
           sx={{
             color: "primary.contrastText",
+            fontWeight: 800,
           }}
         >
-          Hi, My name is Stephen.
+          Hi, my name is Stephen.
         </Typography>
         <Typography
           variant="h5"
           sx={{
             color: "primary.contrastText",
+            fontWeight: 800,
           }}
         >
           I'm a full-stack web developer & UI/UX designer.
