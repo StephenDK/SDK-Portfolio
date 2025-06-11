@@ -16,14 +16,14 @@ const Hero = () => {
   const images = useMemo(
     () => ({
       light: {
-        desktop: "/images/hero/heroLight.png",
-        tablet: "/images/hero/heroLightTablet.png",
-        mobile: "/images/hero/heroLightMobile.png",
+        desktop: "/images/hero/heroLight.webp",
+        tablet: "/images/hero/heroLightTablet.webp",
+        mobile: "/images/hero/heroLightMobile.webp",
       },
       dark: {
-        desktop: "/images/hero/heroDark.png",
-        tablet: "/images/hero/heroDarkTablet.png",
-        mobile: "/images/hero/heroDarkMobile.png",
+        desktop: "/images/hero/heroDark.webp",
+        tablet: "/images/hero/heroDarkTablet.webp",
+        mobile: "/images/hero/heroDarkMobile.webp",
       },
     }),
     []

@@ -13,8 +13,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { styled } from "@mui/material/styles";
 
-// import BlogPlatformImage from "../../../images/projects/Blog Platform.jpg";
-
 const StyledCard = styled(Card)(({ theme }) => ({
   width: "100%",
   maxWidth: "345px",
