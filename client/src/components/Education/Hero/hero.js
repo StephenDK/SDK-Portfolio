@@ -11,7 +11,7 @@ const EducationHero = () => {
 
   useEffect(() => {
     const image = new Image();
-    image.src = "/images/education/cap-diploma.png";
+    image.src = "/images/education/cap-diploma.webp";
   }, []);
 
   const boxVariants = {
@@ -57,7 +57,7 @@ const EducationHero = () => {
               >
                 <Box
                   component="img"
-                  src="/images/education/cap-diploma.png"
+                  src="/images/education/cap-diploma.webp"
                   alt="Education Placeholder"
                   sx={{
                     width: "350px",
