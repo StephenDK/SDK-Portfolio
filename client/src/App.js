@@ -28,16 +28,16 @@ const App = () => {
       try {
         await Promise.all(imagePromises);
         console.log("[Done Loading Images]");
-        // Add 3-second delay after images load
+        // Add 2-second delay after images load
         setTimeout(() => {
           setIsLoading(false);
-        }, 3000); // 3-second delay
+        }, 2000); // 2-second delay
       } catch (error) {
         console.error("Failed to load some images:", error);
-        // Proceed with 3-second delay even if some images fail
+        // Proceed with 2-second delay even if some images fail
         setTimeout(() => {
           setIsLoading(false);
-        }, 3000);
+        }, 2000);
       }
     };
 
