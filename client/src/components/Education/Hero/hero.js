@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid, Typography, Box, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
-import CapAndDiploma from "../../../images/education/cap-diploma.png";
 
 const EducationHero = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = "/images/education/cap-diploma.png";
+  }, []);
 
   const boxVariants = {
     hidden: { y: 100, opacity: 0 },
@@ -54,7 +57,7 @@ const EducationHero = () => {
               >
                 <Box
                   component="img"
-                  src={CapAndDiploma}
+                  src="/images/education/cap-diploma.png"
                   alt="Education Placeholder"
                   sx={{
                     width: "350px",

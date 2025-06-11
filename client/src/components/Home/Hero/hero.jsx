@@ -1,12 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ThemeContext } from "../../../themeContext";
-import HeroLight from "../../../images/hero/heroLight.png";
-import HeroDark from "../../../images/hero/heroDark.png";
-import HeroLightTablet from "../../../images/hero/heroLightTablet.png"; // Import tablet image for light mode
-import HeroDarkTablet from "../../../images/hero/heroDarkTablet.png"; // Import tablet image for dark mode
-import HeroLightMobile from "../../../images/hero/heroLightMobile.png"; // Import mobile image for light mode
-import HeroDarkMobile from "../../../images/hero/heroDarkMobile.png"; // Import mobile image for dark mode
 import { Typography } from "@mui/material";
 
 const Hero = () => {
@@ -18,19 +12,22 @@ const Hero = () => {
   const [shouldAnimate, setShouldAnimate] = useState(true);
   const [currentImage, setCurrentImage] = useState(null);
 
-  // Image paths for different screen sizes and themes
-  const images = {
-    light: {
-      desktop: HeroLight,
-      tablet: HeroLightTablet,
-      mobile: HeroLightMobile,
-    },
-    dark: {
-      desktop: HeroDark,
-      tablet: HeroDarkTablet,
-      mobile: HeroDarkMobile,
-    },
-  };
+  // Image paths for different screen sizes and themes, memoized to prevent re-creation
+  const images = useMemo(
+    () => ({
+      light: {
+        desktop: "/images/hero/heroLight.png",
+        tablet: "/images/hero/heroLightTablet.png",
+        mobile: "/images/hero/heroLightMobile.png",
+      },
+      dark: {
+        desktop: "/images/hero/heroDark.png",
+        tablet: "/images/hero/heroDarkTablet.png",
+        mobile: "/images/hero/heroDarkMobile.png",
+      },
+    }),
+    []
+  );
 
   // Preload images to prevent white flash
   useEffect(() => {

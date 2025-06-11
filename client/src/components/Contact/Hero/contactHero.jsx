@@ -7,8 +7,6 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 
-import AnimatedMe from "../../../images/contact/animated-me.png";
-
 const ContactMeHero = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -66,7 +64,7 @@ const ContactMeHero = () => {
               >
                 <Box
                   component="img"
-                  src={AnimatedMe}
+                  src="/images/contact/animated-me.png"
                   alt="Education Placeholder"
                   sx={{
                     width: { xs: "250px", md: "350px" },

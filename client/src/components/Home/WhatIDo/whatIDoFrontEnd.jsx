@@ -1,16 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Grid, Typography, Box, Container, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { ThemeContext } from "../../../themeContext";
 import { useInView } from "react-intersection-observer";
-import StarIcon from "@mui/icons-material/Star"; // Star icon for text
-import HTML from "../../../images/icons/html.svg";
-import JAVASCRIPT from "../../../images/icons/javascript.svg";
-import CSS from "../../../images/icons/css.svg";
-import REACT from "../../../images/icons/react.svg";
-
-import FrontEndLight from "../../../images/whatIDo/front-end-light.png";
-import FrontEndDark from "../../../images/whatIDo/front-end-dark.png";
+import StarIcon from "@mui/icons-material/Star";
 
 const WhatIDoFrontEnd = () => {
   const { mode } = useContext(ThemeContext);
@@ -18,6 +11,21 @@ const WhatIDoFrontEnd = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  useEffect(() => {
+    const imageUrls = [
+      "/images/whatIDo/front-end-light.png",
+      "/images/whatIDo/front-end-dark.png",
+      "/images/icons/html.svg",
+      "/images/icons/javascript.svg",
+      "/images/icons/css.svg",
+      "/images/icons/react.svg",
+    ];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
   const leftVariants = {
     hidden: { x: -100, opacity: 0 },
@@ -79,7 +87,11 @@ const WhatIDoFrontEnd = () => {
               >
                 <Box
                   component="img"
-                  src={mode === "dark" ? FrontEndDark : FrontEndLight}
+                  src={
+                    mode === "dark"
+                      ? "/images/whatIDo/front-end-dark.png"
+                      : "/images/whatIDo/front-end-light.png"
+                  }
                   alt="My Work"
                   sx={{
                     width: "100%",
@@ -129,7 +141,7 @@ const WhatIDoFrontEnd = () => {
                 >
                   <Box
                     component="img"
-                    src={HTML}
+                    src="/images/icons/html.svg"
                     alt="HTML"
                     sx={{
                       width: 60,
@@ -138,7 +150,7 @@ const WhatIDoFrontEnd = () => {
                   />
                   <Box
                     component="img"
-                    src={JAVASCRIPT}
+                    src="/images/icons/javascript.svg"
                     alt="Javascript"
                     sx={{
                       width: 60,
@@ -147,7 +159,7 @@ const WhatIDoFrontEnd = () => {
                   />
                   <Box
                     component="img"
-                    src={CSS}
+                    src="/images/icons/css.svg"
                     alt="CSS"
                     sx={{
                       width: 60,
@@ -157,7 +169,7 @@ const WhatIDoFrontEnd = () => {
                   />
                   <Box
                     component="img"
-                    src={REACT}
+                    src="/images/icons/react.svg"
                     alt="React"
                     sx={{
                       width: 60,

@@ -9,15 +9,23 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 
-import Foothill from "../../../images/education/foothill-college.png";
-import UCBerkeley from "../../../images/education/uc-berkeley.png";
-import Cisco from "../../../images/education/cisco.png";
-import Udemy from "../../../images/education/udemy.png";
-import Udacity from "../../../images/education/udacity.png";
-import SCCGOV from "../../../images/education/sccgov.png";
-import SoloLearn from "../../../images/education/sololearn.png";
-
 export default function Certificates() {
+  React.useEffect(() => {
+    const imageUrls = [
+      "/images/education/uc-berkeley.png",
+      "/images/education/cisco.png",
+      "/images/education/udacity.png",
+      "/images/education/sccgov.png",
+      "/images/education/udemy.png",
+      "/images/education/foothill-college.png",
+      "/images/education/sololearn.png",
+    ];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
+
   const cardVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: {
@@ -32,55 +40,55 @@ export default function Certificates() {
       id: 1,
       name: "Full-Stack Engineer",
       program: "UC Berkeley Extension",
-      image: UCBerkeley,
+      image: "/images/education/uc-berkeley.png",
     },
     {
       id: 2,
       name: "CCNA",
       program: "Cisco Systems",
-      image: Cisco,
+      image: "/images/education/cisco.png",
     },
     {
       id: 3,
       name: "React Nano Degree",
       program: "Udacity",
-      image: Udacity,
+      image: "/images/education/udacity.png",
     },
     {
       id: 4,
       name: "Recognition Award",
       program: "County of Santa Clara",
-      image: SCCGOV,
+      image: "/images/education/sccgov.png",
     },
     {
       id: 5,
       name: "Node Master Class",
       program: "Udemy",
-      image: Udemy,
+      image: "/images/education/udemy.png",
     },
     {
       id: 6,
       name: "React & Redux",
       program: "Udemy",
-      image: Udemy,
+      image: "/images/education/udemy.png",
     },
     {
       id: 7,
       name: "EMT",
       program: "Foothill Community College",
-      image: Foothill,
+      image: "/images/education/foothill-college.png",
     },
     {
       id: 8,
       name: "Javascript Tutorial",
       program: "SoloLearn",
-      image: SoloLearn,
+      image: "/images/education/sololearn.png",
     },
     {
       id: 9,
       name: "HTML Fundamentals",
       program: "SoloLearn",
-      image: SoloLearn,
+      image: "/images/education/sololearn.png",
     },
   ];
 

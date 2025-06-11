@@ -1,18 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Grid, Typography, Box, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from "../../../themeContext";
 
-import ExperienceHeroLight from "../../../images/experience/experience-hero-light.png";
-import ExperienceHeroDark from "../../../images/experience/experience-hero-dark.png";
-
-const ProjectHero = () => {
+const ExperienceHero = () => {
   const { mode } = useContext(ThemeContext);
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  useEffect(() => {
+    const imageUrls = [
+      "/images/experience/experience-hero-light.png",
+      "/images/experience/experience-hero-dark.png",
+    ];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
   const boxVariants = {
     hidden: { y: 100, opacity: 0 },
@@ -58,7 +66,9 @@ const ProjectHero = () => {
                 <Box
                   component="img"
                   src={
-                    mode === "dark" ? ExperienceHeroDark : ExperienceHeroLight
+                    mode === "dark"
+                      ? "/images/experience/experience-hero-dark.png"
+                      : "/images/experience/experience-hero-light.png"
                   }
                   alt="Education Placeholder"
                   sx={{
@@ -124,4 +134,4 @@ const ProjectHero = () => {
   );
 };
 
-export default ProjectHero;
+export default ExperienceHero;

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import {
   Box,
   Grid,
@@ -12,23 +13,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { styled } from "@mui/material/styles";
 
-// Import all SVG icons explicitly
-import HTML from "../../../images/icons/html.svg";
-import CSS from "../../../images/icons/css.svg";
-import JavaScript from "../../../images/icons/javascript.svg";
-import ReactIcon from "../../../images/icons/react.svg";
-import Node from "../../../images/icons/nodejs.svg";
-import Github from "../../../images/icons/github.svg";
-import Redux from "../../../images/icons/redux.svg";
-import MaterialUI from "../../../images/icons/materialui.svg";
-import Jest from "../../../images/icons/jest.svg";
-
-// Import project images explicitly
-import TrackerAppImage from "../../../images/projects/trackerapp.png";
-import UrbanGold from "../../../images/projects/urban-gold.png";
-import SDKPortfolio from "../../../images/projects/sdk-portfolio.png";
-import PioneerPolls from "../../../images/projects/pioneer-polls.png";
-import ROVTimer from "../../../images/projects/rov-timer.png";
 // import BlogPlatformImage from "../../../images/projects/Blog Platform.jpg";
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -40,9 +24,9 @@ const StyledCard = styled(Card)(({ theme }) => ({
     transform: "scale(1.05)",
     boxShadow: theme.shadows[8],
   },
-  display: "flex", // Make card a flex container
-  flexDirection: "column", // Stack children vertically
-  height: "520px", // Fixed height for all cards
+  display: "flex",
+  flexDirection: "column",
+  height: "520px",
 }));
 
 const CardLink = styled("a")({
@@ -55,39 +39,77 @@ const CardLink = styled("a")({
 const getLanguageIcon = (language) => {
   switch (language) {
     case "html":
-      return <img src={HTML} alt="HTML" style={{ width: 32, height: 32 }} />;
+      return (
+        <img
+          src="/images/icons/html.svg"
+          alt="HTML"
+          style={{ width: 32, height: 32 }}
+        />
+      );
     case "css":
-      return <img src={CSS} alt="CSS" style={{ width: 32, height: 32 }} />;
+      return (
+        <img
+          src="/images/icons/css.svg"
+          alt="CSS"
+          style={{ width: 32, height: 32 }}
+        />
+      );
     case "javascript":
       return (
         <img
-          src={JavaScript}
+          src="/images/icons/javascript.svg"
           alt="JavaScript"
           style={{ width: 32, height: 32 }}
         />
       );
     case "react":
       return (
-        <img src={ReactIcon} alt="React" style={{ width: 32, height: 32 }} />
+        <img
+          src="/images/icons/react.svg"
+          alt="React"
+          style={{ width: 32, height: 32 }}
+        />
       );
     case "node":
-      return <img src={Node} alt="Node.js" style={{ width: 32, height: 32 }} />;
+      return (
+        <img
+          src="/images/icons/nodejs.svg"
+          alt="Node.js"
+          style={{ width: 32, height: 32 }}
+        />
+      );
     case "redux":
-      return <img src={Redux} alt="Redux" style={{ width: 32, height: 32 }} />;
+      return (
+        <img
+          src="/images/icons/redux.svg"
+          alt="Redux"
+          style={{ width: 32, height: 32 }}
+        />
+      );
     case "github":
       return (
-        <img src={Github} alt="Github" style={{ width: 32, height: 32 }} />
+        <img
+          src="/images/icons/github.svg"
+          alt="Github"
+          style={{ width: 32, height: 32 }}
+        />
       );
     case "material-ui":
       return (
         <img
-          src={MaterialUI}
+          src="/images/icons/materialui.svg"
           alt="Material UI"
           style={{ width: 32, height: 32 }}
         />
       );
     case "jest":
-      return <img src={Jest} alt="Jest" style={{ width: 32, height: 32 }} />;
+      return (
+        <img
+          src="/images/icons/jest.svg"
+          alt="Jest"
+          style={{ width: 32, height: 32 }}
+        />
+      );
     default:
       return null;
   }
@@ -96,15 +118,15 @@ const getLanguageIcon = (language) => {
 const getProjectImage = (title) => {
   switch (title) {
     case "TrackerApp":
-      return TrackerAppImage;
+      return "/images/projects/trackerapp.png";
     case "Urban Gold":
-      return UrbanGold;
+      return "/images/projects/urban-gold.png";
     case "SDK Portfolio":
-      return SDKPortfolio;
+      return "/images/projects/sdk-portfolio.png";
     case "CSU EB Pioneer Polls":
-      return PioneerPolls;
+      return "/images/projects/pioneer-polls.png";
     case "SCCGOV ROV Election Timer":
-      return ROVTimer;
+      return "/images/projects/rov-timer.png";
     default:
       return "https://placehold.co/300x200";
   }
@@ -115,6 +137,29 @@ export default function ProjectsList() {
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  useEffect(() => {
+    const imageUrls = [
+      "/images/projects/trackerapp.png",
+      "/images/projects/urban-gold.png",
+      "/images/projects/sdk-portfolio.png",
+      "/images/projects/pioneer-polls.png",
+      "/images/projects/rov-timer.png",
+      "/images/icons/html.svg",
+      "/images/icons/css.svg",
+      "/images/icons/javascript.svg",
+      "/images/icons/react.svg",
+      "/images/icons/nodejs.svg",
+      "/images/icons/github.svg",
+      "/images/icons/redux.svg",
+      "/images/icons/materialui.svg",
+      "/images/icons/jest.svg",
+    ];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
   const cardVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -234,21 +279,29 @@ export default function ProjectsList() {
                     image={getProjectImage(project.title)}
                     alt={`${project.title} Preview`}
                   />
-                  <CardContent sx={{ textAlign: "center", p: 2, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                  <CardContent
+                    sx={{
+                      textAlign: "center",
+                      p: 2,
+                      flexGrow: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
                     <Typography gutterBottom variant="h5" component="div">
                       {project.title}
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ 
-                        color: "text.secondary", 
-                        mb: 2, 
-                        flexGrow: 1, 
-                        overflow: "hidden", 
-                        textOverflow: "ellipsis", 
-                        display: "-webkit-box", 
-                        WebkitLineClamp: 4, 
-                        WebkitBoxOrient: "vertical" 
+                      sx={{
+                        color: "text.secondary",
+                        mb: 2,
+                        flexGrow: 1,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        display: "-webkit-box",
+                        WebkitLineClamp: 4,
+                        WebkitBoxOrient: "vertical",
                       }}
                     >
                       {project.description}

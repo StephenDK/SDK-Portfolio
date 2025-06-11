@@ -1,24 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Grid, Typography, Box, Container, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from "../../../themeContext"; // Ensure ThemeContext is imported
 
 import StarIcon from "@mui/icons-material/Star"; // Star icon for text
-import NODEJS from "../../../images/icons/nodejs.svg";
-import MONGODB from "../../../images/icons/mongodb.svg";
-import MYSQL from "../../../images/icons/mysql.svg";
-import CPLUSPLUS from "../../../images/icons/c.svg";
+// import NODEJS from "../../../images/icons/nodejs.svg";
+// import MONGODB from "../../../images/icons/mongodb.svg";
+// import MYSQL from "../../../images/icons/mysql.svg";
+// import CPLUSPLUS from "../../../images/icons/c.svg";
 
-import BackendServersLight from "../../../images/whatIDo/backend-servers-light.png";
-import BackendServersDark from "../../../images/whatIDo/backend-servers-dark.png";
+// import BackendServersLight from "../../../images/whatIDo/backend-servers-light.png";
+// import BackendServersDark from "../../../images/whatIDo/backend-servers-dark.png";
 
-const WhatIDo = () => {
+const WhatIDoBackEnd = () => {
   const { mode } = useContext(ThemeContext);
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  useEffect(() => {
+    const imageUrls = [
+      "/images/whatIDo/backend-servers-light.png",
+      "/images/whatIDo/backend-servers-dark.png",
+      "/images/icons/nodejs.svg",
+      "/images/icons/mongodb.svg",
+      "/images/icons/mysql.svg",
+      "/images/icons/c.svg",
+    ];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
   const leftVariants = {
     hidden: { x: -100, opacity: 0 },
@@ -83,7 +98,7 @@ const WhatIDo = () => {
                 >
                   <Box
                     component="img"
-                    src={NODEJS}
+                    src="/images/icons/nodejs.svg"
                     alt="Nodejs"
                     sx={{
                       width: 60,
@@ -92,7 +107,7 @@ const WhatIDo = () => {
                   />
                   <Box
                     component="img"
-                    src={MONGODB}
+                    src="/images/icons/mongodb.svg"
                     alt="MongoDB"
                     sx={{
                       width: 60,
@@ -101,7 +116,7 @@ const WhatIDo = () => {
                   />
                   <Box
                     component="img"
-                    src={MYSQL}
+                    src="/images/icons/mysql.svg"
                     alt="MySQL"
                     sx={{
                       width: 60,
@@ -110,7 +125,7 @@ const WhatIDo = () => {
                   />
                   <Box
                     component="img"
-                    src={CPLUSPLUS}
+                    src="/images/icons/c.svg"
                     alt="C++"
                     sx={{
                       width: 60,
@@ -219,7 +234,9 @@ const WhatIDo = () => {
                 <Box
                   component="img"
                   src={
-                    mode === "dark" ? BackendServersDark : BackendServersLight
+                    mode === "dark"
+                      ? "/images/whatIDo/backend-servers-dark.png"
+                      : "/images/whatIDo/backend-servers-light.png"
                   }
                   alt="My Work"
                   sx={{
@@ -241,4 +258,4 @@ const WhatIDo = () => {
   );
 };
 
-export default WhatIDo;
+export default WhatIDoBackEnd;

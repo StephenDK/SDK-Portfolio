@@ -1,22 +1,31 @@
-import React, { useContext } from "react"; // Add useContext import
-import { ThemeContext } from "../../../themeContext"; // Ensure ThemeContext is imported
+import React, { useContext, useEffect } from "react";
 import { Grid, Typography, Box, Container, Stack } from "@mui/material";
 import { motion } from "framer-motion";
+import { ThemeContext } from "../../../themeContext";
 import { useInView } from "react-intersection-observer";
 import StarIcon from "@mui/icons-material/Star";
-import FIGMA from "../../../images/icons/figma.svg";
-import ADOBEXD from "../../../images/icons/adobexd.svg";
-import MIRO from "../../../images/icons/miro.svg";
-import JIRA from "../../../images/icons/jira.svg";
-import LowFidelityImageLight from "../../../images/whatIDo/low-fidelity-light.png";
-import LowFidelityImageDark from "../../../images/whatIDo/low-fidelity-dark.png";
 
-const WhatIDo = () => {
-  const { mode } = useContext(ThemeContext); // Access mode from ThemeContext
+const WhatIDoUIUX = () => {
+  const { mode } = useContext(ThemeContext);
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  useEffect(() => {
+    const imageUrls = [
+      "/images/whatIDo/low-fidelity-light.png",
+      "/images/whatIDo/low-fidelity-dark.png",
+      "/images/icons/figma.svg",
+      "/images/icons/adobexd.svg",
+      "/images/icons/miro.svg",
+      "/images/icons/jira.svg",
+    ];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
   const leftVariants = {
     hidden: { x: -100, opacity: 0 },
@@ -71,9 +80,9 @@ const WhatIDo = () => {
                   component="img"
                   src={
                     mode === "dark"
-                      ? LowFidelityImageDark
-                      : LowFidelityImageLight
-                  } // Conditional image source
+                      ? "/images/whatIDo/low-fidelity-dark.png"
+                      : "/images/whatIDo/low-fidelity-light.png"
+                  }
                   alt="My Work"
                   sx={{
                     width: "100%",
@@ -123,7 +132,7 @@ const WhatIDo = () => {
                 >
                   <Box
                     component="img"
-                    src={FIGMA}
+                    src="/images/icons/figma.svg"
                     alt="Figma"
                     sx={{
                       width: 60,
@@ -132,7 +141,7 @@ const WhatIDo = () => {
                   />
                   <Box
                     component="img"
-                    src={ADOBEXD}
+                    src="/images/icons/adobexd.svg"
                     alt="Adobe XD"
                     sx={{
                       width: 60,
@@ -141,7 +150,7 @@ const WhatIDo = () => {
                   />
                   <Box
                     component="img"
-                    src={MIRO}
+                    src="/images/icons/miro.svg"
                     alt="Miro"
                     sx={{
                       width: 60,
@@ -150,7 +159,7 @@ const WhatIDo = () => {
                   />
                   <Box
                     component="img"
-                    src={JIRA}
+                    src="/images/icons/jira.svg"
                     alt="Jira"
                     sx={{
                       width: 60,
@@ -239,4 +248,4 @@ const WhatIDo = () => {
   );
 };
 
-export default WhatIDo;
+export default WhatIDoUIUX;

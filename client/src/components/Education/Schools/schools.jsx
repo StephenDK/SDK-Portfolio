@@ -1,6 +1,5 @@
-import * as React from "react";
-import { useContext } from "react";
-import { useTheme } from "@mui/material/styles";
+import React, { useContext, useEffect } from "react";
+
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -8,14 +7,22 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import CSUEB from "../../../images/education/CSUEB.svg";
-import DAC_BLACK from "../../../images/education/DAC_Logo_Black.png";
-import DAC_WHITE from "../../../images/education/DAC_Logo_White.png";
 import { ThemeContext } from "../../../themeContext";
 
 export default function Schools() {
-  const theme = useTheme();
   const { mode } = useContext(ThemeContext);
+
+  useEffect(() => {
+    const imageUrls = [
+      "/images/education/CSUEB.svg",
+      "/images/education/DAC_Logo_Black.png",
+      "/images/education/DAC_Logo_White.png",
+    ];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
   const { ref: ref1, inView: inView1 } = useInView({
     triggerOnce: true,
@@ -45,7 +52,10 @@ export default function Schools() {
     },
   };
 
-  const deAnzaLogo = mode === "dark" ? DAC_WHITE : DAC_BLACK;
+  const deAnzaLogo =
+    mode === "dark"
+      ? "/images/education/DAC_Logo_White.png"
+      : "/images/education/DAC_Logo_Black.png";
 
   return (
     <Box
@@ -91,7 +101,7 @@ export default function Schools() {
               objectFit: "contain",
               m: "auto",
             }}
-            image={CSUEB}
+            image="/images/education/CSUEB.svg"
             alt="California State University East Bay"
           />
           <Box
@@ -156,6 +166,7 @@ export default function Schools() {
         >
           <CardMedia
             component="img"
+            salty
             sx={{
               width: { xs: "100%", sm: 200 },
               height: 200,
