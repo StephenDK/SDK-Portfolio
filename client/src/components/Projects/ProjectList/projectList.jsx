@@ -158,7 +158,7 @@ export default function ProjectsList() {
       title: "Urban Gold",
       description:
         "Urban Gold is a custom-built app developed for a small business to support the installation of industrial flooring. The app allows users to create, view, and follow step-by-step instructions, ensuring consistency, accuracy, and efficiency on job sites.",
-      url: "https://example.com/",
+      url: "https://github.com/StephenDK/ConstructionApp",
       languages: ["react", "node", "redux", "material-ui", "github"],
     },
     {
@@ -166,7 +166,7 @@ export default function ProjectsList() {
       title: "SDK Portfolio",
       description:
         "SDK Portfolio is a showcase app designed to highlight my skills as a full-stack engineer and UI/UX developer. Built for reusability and customization, it allows others to easily clone and adapt the project as a foundation for their own portfolios.",
-      url: "https://example.com/",
+      url: "https://github.com/StephenDK/SDK-Portfolio",
       languages: ["react", "node", "material-ui", "github"],
     },
     {
