@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -11,18 +11,6 @@ import { ThemeContext } from "../../../themeContext";
 
 export default function Schools() {
   const { mode } = useContext(ThemeContext);
-
-  useEffect(() => {
-    const imageUrls = [
-      "/images/education/CSUEB.svg",
-      "/images/education/DAC_Logo_Black.png",
-      "/images/education/DAC_Logo_White.png",
-    ];
-    imageUrls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  }, []);
 
   const { ref: ref1, inView: inView1 } = useInView({
     triggerOnce: true,

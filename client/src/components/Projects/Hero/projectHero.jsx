@@ -1,11 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Grid, Typography, Box, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from "../../../themeContext";
-
-// import ProjectWhiteBoardLight from "../../../images/projects/project-board-light.png";
-// import ProjectWhiteBoardDark from "../../../images/projects/project-board-dark.png";
 
 const ProjectHero = () => {
   const { mode } = useContext(ThemeContext);
@@ -13,17 +10,6 @@ const ProjectHero = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-  useEffect(() => {
-    const imageUrls = [
-      "/images/projects/project-board-light.webp",
-      "/images/projects/project-board-dark.webp",
-    ];
-    imageUrls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  }, []);
 
   const boxVariants = {
     hidden: { y: 100, opacity: 0 },

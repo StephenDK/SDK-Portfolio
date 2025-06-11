@@ -31,14 +31,6 @@ const ContactMeForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Check localStorage for submission status on component mount
-  useEffect(() => {
-    const hasSubmitted = localStorage.getItem("hasSubmitted") === "true";
-    if (hasSubmitted) {
-      setIsSubmitted(true);
-    }
-  }, []);
-
   // Save formData to localStorage whenever it changes
   useEffect(() => {
     if (!isSubmitted) {

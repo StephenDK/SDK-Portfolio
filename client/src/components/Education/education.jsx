@@ -1,6 +1,6 @@
 import React from "react";
 
-import EducationHero from "./Hero/hero";
+import EducationHero from "./Hero/educationHero";
 import Schools from "./Schools/schools";
 import Certifications from "./Certificates/certificates";
 

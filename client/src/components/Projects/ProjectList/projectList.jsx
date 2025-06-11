@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useEffect } from "react";
+import React from "react";
 import {
   Box,
   Grid,
@@ -135,29 +134,6 @@ export default function ProjectsList() {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-  useEffect(() => {
-    const imageUrls = [
-      "/images/projects/trackerapp.png",
-      "/images/projects/urban-gold.png",
-      "/images/projects/sdk-portfolio.png",
-      "/images/projects/pioneer-polls.png",
-      "/images/projects/rov-timer.png",
-      "/images/icons/html.svg",
-      "/images/icons/css.svg",
-      "/images/icons/javascript.svg",
-      "/images/icons/react.svg",
-      "/images/icons/nodejs.svg",
-      "/images/icons/github.svg",
-      "/images/icons/redux.svg",
-      "/images/icons/materialui.svg",
-      "/images/icons/jest.svg",
-    ];
-    imageUrls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  }, []);
 
   const cardVariants = {
     hidden: { y: 50, opacity: 0 },

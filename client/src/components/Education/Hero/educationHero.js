@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Grid, Typography, Box, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -8,11 +8,6 @@ const EducationHero = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-  useEffect(() => {
-    const image = new Image();
-    image.src = "/images/education/cap-diploma.webp";
-  }, []);
 
   const boxVariants = {
     hidden: { y: 100, opacity: 0 },

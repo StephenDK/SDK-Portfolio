@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Grid, Typography, Box, Container, IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -12,14 +12,6 @@ const ContactMeHero = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-  useEffect(() => {
-    const imageUrls = ["/images/contact/animated-me.webp"];
-    imageUrls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  }, []);
 
   const boxVariants = {
     hidden: { y: 100, opacity: 0 },

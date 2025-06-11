@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Grid, Typography, Box, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -10,17 +10,6 @@ const ExperienceHero = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-  useEffect(() => {
-    const imageUrls = [
-      "/images/experience/experience-hero-light.webp",
-      "/images/experience/experience-hero-dark.webp",
-    ];
-    imageUrls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  }, []);
 
   const boxVariants = {
     hidden: { y: 100, opacity: 0 },

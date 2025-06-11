@@ -5,9 +5,9 @@ import { lightTheme, darkTheme } from "./theme";
 export const ThemeContext = createContext();
 
 export const ThemeProviderWrapper = ({ children }) => {
-  // Initialize theme from localStorage or default to "light"
+  // Initialize theme from localStorage or default to "dark"
   const [mode, setMode] = useState(
-    () => localStorage.getItem("theme") || "light"
+    () => localStorage.getItem("theme") || "dark"
   );
 
   // Save theme to localStorage whenever it changes

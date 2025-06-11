@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {
   Box,
   Grid,
@@ -10,22 +10,6 @@ import {
 import { motion } from "framer-motion";
 
 export default function Certificates() {
-  React.useEffect(() => {
-    const imageUrls = [
-      "/images/education/uc-berkeley.png",
-      "/images/education/cisco.png",
-      "/images/education/udacity.png",
-      "/images/education/sccgov.png",
-      "/images/education/udemy.png",
-      "/images/education/foothill-college.png",
-      "/images/education/sololearn.png",
-    ];
-    imageUrls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  }, []);
-
   const cardVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: {

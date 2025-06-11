@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Grid, Typography, Box, Container, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { ThemeContext } from "../../../themeContext";
@@ -11,21 +11,6 @@ const WhatIDoFrontEnd = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-  useEffect(() => {
-    const imageUrls = [
-      "/images/whatIDo/front-end-light.png",
-      "/images/whatIDo/front-end-dark.png",
-      "/images/icons/html.svg",
-      "/images/icons/javascript.svg",
-      "/images/icons/css.svg",
-      "/images/icons/react.svg",
-    ];
-    imageUrls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  }, []);
 
   const leftVariants = {
     hidden: { x: -100, opacity: 0 },
