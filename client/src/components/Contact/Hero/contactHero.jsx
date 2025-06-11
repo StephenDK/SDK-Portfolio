@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid, Typography, Box, Container, IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -12,6 +12,14 @@ const ContactMeHero = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  useEffect(() => {
+    const imageUrls = ["/images/contact/animated-me.webp"];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
   const boxVariants = {
     hidden: { y: 100, opacity: 0 },
@@ -64,7 +72,7 @@ const ContactMeHero = () => {
               >
                 <Box
                   component="img"
-                  src="/images/contact/animated-me.png"
+                  src="/images/contact/animated-me.webp"
                   alt="Education Placeholder"
                   sx={{
                     width: { xs: "250px", md: "350px" },

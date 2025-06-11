@@ -13,8 +13,8 @@ const ExperienceHero = () => {
 
   useEffect(() => {
     const imageUrls = [
-      "/images/experience/experience-hero-light.png",
-      "/images/experience/experience-hero-dark.png",
+      "/images/experience/experience-hero-light.webp",
+      "/images/experience/experience-hero-dark.webp",
     ];
     imageUrls.forEach((url) => {
       const img = new Image();
@@ -67,8 +67,8 @@ const ExperienceHero = () => {
                   component="img"
                   src={
                     mode === "dark"
-                      ? "/images/experience/experience-hero-dark.png"
-                      : "/images/experience/experience-hero-light.png"
+                      ? "/images/experience/experience-hero-dark.webp"
+                      : "/images/experience/experience-hero-light.webp"
                   }
                   alt="Education Placeholder"
                   sx={{

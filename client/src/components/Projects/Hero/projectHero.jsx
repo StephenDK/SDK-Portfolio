@@ -16,8 +16,8 @@ const ProjectHero = () => {
 
   useEffect(() => {
     const imageUrls = [
-      "/images/projects/project-board-light.png",
-      "/images/projects/project-board-dark.png",
+      "/images/projects/project-board-light.webp",
+      "/images/projects/project-board-dark.webp",
     ];
     imageUrls.forEach((url) => {
       const img = new Image();
@@ -70,8 +70,8 @@ const ProjectHero = () => {
                   component="img"
                   src={
                     mode === "dark"
-                      ? "/images/projects/project-board-dark.png"
-                      : "/images/projects/project-board-light.png"
+                      ? "/images/projects/project-board-dark.webp"
+                      : "/images/projects/project-board-light.webp"
                   }
                   alt="Education Placeholder"
                   sx={{
