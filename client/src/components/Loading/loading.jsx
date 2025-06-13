@@ -20,8 +20,7 @@ const LoadingScreen = () => {
       <Box sx={{ textAlign: "center" }}>
         <motion.div
           animate={{
-            y: [0, -20, 0, -20, 0], // Two bounces
-            rotate: [0, 0, 0, 0, 360], // Spin after bounces
+            y: [0, -20, 0, -20, 0],
           }}
           transition={{
             duration: 2.5,
