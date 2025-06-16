@@ -38,6 +38,7 @@ export const imageList = [
   "/images/experience/experience-hero-dark.webp",
   "/images/projects/project-board-light.webp",
   "/images/projects/project-board-dark.webp",
+  "/images/projects/property-match.png",
   "/images/projects/trackerapp.png",
   "/images/projects/urban-gold.png",
   "/images/projects/sdk-portfolio.png",
@@ -47,5 +48,8 @@ export const imageList = [
   "/images/icons/redux.svg",
   "/images/icons/materialui.svg",
   "/images/icons/jest.svg",
+  "/images/icons/tailwind.svg",
+  "/images/icons/nextjs.svg",
+  "/images/icons/vercel.svg",
   "/images/contact/animated-me.webp",
 ];

@@ -107,6 +107,38 @@ const getLanguageIcon = (language) => {
           style={{ width: 32, height: 32 }}
         />
       );
+    case "tailwind":
+      return (
+        <img
+          src="/images/icons/tailwind.svg"
+          alt="Tailwind"
+          style={{ width: 32, height: 32 }}
+        />
+      );
+    case "nextjs":
+      return (
+        <img
+          src="/images/icons/nextjs.svg"
+          alt="NextJS"
+          style={{ width: 32, height: 32 }}
+        />
+      );
+    case "vercel":
+      return (
+        <img
+          src="/images/icons/vercel.svg"
+          alt="Vercel"
+          style={{ width: 32, height: 32 }}
+        />
+      );
+    case "mongodb":
+      return (
+        <img
+          src="/images/icons/mongodb.svg"
+          alt="MongoDB"
+          style={{ width: 32, height: 32 }}
+        />
+      );
     default:
       return null;
   }
@@ -124,6 +156,8 @@ const getProjectImage = (title) => {
       return "/images/projects/pioneer-polls.png";
     case "SCCGOV ROV Election Timer":
       return "/images/projects/rov-timer.png";
+    case "PropertyMatch":
+      return "/images/projects/property-match.png";
     default:
       return "https://placehold.co/300x200";
   }
@@ -147,6 +181,14 @@ export default function ProjectsList() {
   const projects = [
     {
       id: 1,
+      title: "PropertyMatch",
+      description:
+        "Property Match is a real estate app designed to connect home buyers with sellers and renters. Users can browse available properties, view detailed listings, and message prospects directly within the platform. The app simplifies the home-search process by making communication between buyers, sellers, and renters fast and intuitive.",
+      url: "https://propertymatch-7hb0pn2d1-stephens-projects-50407971.vercel.app/",
+      languages: ["nextjs", "tailwind", "react", "mongodb", "vercel"],
+    },
+    {
+      id: 2,
       title: "TrackerApp",
       description:
         "Tracker App is an inventory management tool developed for the County of Santa Clara. Designed to streamline the check-in and check-out of devices, the app offers real-time reporting to improve tracking, accountability, and overall efficiency in managing equipment.",
@@ -154,7 +196,7 @@ export default function ProjectsList() {
       languages: ["react", "node", "redux", "material-ui", "github"],
     },
     {
-      id: 2,
+      id: 3,
       title: "Urban Gold",
       description:
         "Urban Gold is a custom-built app developed for a small business to support the installation of industrial flooring. The app allows users to create, view, and follow step-by-step instructions, ensuring consistency, accuracy, and efficiency on job sites.",
@@ -162,7 +204,7 @@ export default function ProjectsList() {
       languages: ["react", "node", "redux", "material-ui", "github"],
     },
     {
-      id: 3,
+      id: 4,
       title: "SDK Portfolio",
       description:
         "SDK Portfolio is a showcase app designed to highlight my skills as a full-stack engineer and UI/UX developer. Built for reusability and customization, it allows others to easily clone and adapt the project as a foundation for their own portfolios.",
@@ -170,7 +212,7 @@ export default function ProjectsList() {
       languages: ["react", "node", "material-ui", "github"],
     },
     {
-      id: 4,
+      id: 5,
       title: "CSU EB Pioneer Polls",
       description:
         "Pioneer Polls is a student-focused polling app developed as my senior project. The app allows students to log in, create polls, and submit ratings on various topics, making it easy to gather opinions and engage with peers in a simple, interactive way.",
@@ -178,7 +220,7 @@ export default function ProjectsList() {
       languages: ["react", "node", "redux", "jest", "github"],
     },
     {
-      id: 5,
+      id: 6,
       title: "SCCGOV ROV Election Timer",
       description:
         "SCCGOV ROV Timer is a public-facing countdown app developed to support major elections. It displays the time remaining until polls close, helping voters stay informed and encouraging timely participation in the democratic process.",
