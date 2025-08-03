@@ -81,9 +81,10 @@ const Hero = () => {
           width: "100%",
           height: "100%",
           zIndex: 1,
+          //opacity: 0.5, // Set background image opacity to 0.9
         }}
         initial={shouldAnimate ? { y: -100, opacity: 0 } : false}
-        animate={shouldAnimate ? { y: 0, opacity: 1 } : false}
+        animate={shouldAnimate ? { y: 0, opacity: 0.8 } : false} // Ensure animation respects opacity
         transition={
           shouldAnimate
             ? {
@@ -103,15 +104,22 @@ const Hero = () => {
         style={{ zIndex: 2 }}
       />
 
-      {/* Text Content - Positioned absolutely, responsive adjustments */}
+      {/* Text Content - Centered vertically and horizontally */}
       <div
         style={{
           position: "absolute",
           zIndex: 3,
-          top: windowWidth < 600 ? "10%" : "15%", // Adjust top for mobile
-          right: windowWidth < 600 ? "5%" : "13%", // Adjust right for mobile
-          left: windowWidth < 600 ? "auto" : "auto",
-          width: windowWidth < 600 ? "90%" : "auto", // Wider for mobile readability
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center", // Center vertically
+          alignItems: "center", // Center horizontally
+          width: "100%", // Full width for mobile and desktop
+          padding: windowWidth < 600 ? "0 5%" : "0 13%", // Responsive padding
+          boxSizing: "border-box",
         }}
       >
         <Typography
@@ -119,18 +127,20 @@ const Hero = () => {
           sx={{
             color: "primary.contrastText",
             fontWeight: 800,
+            textAlign: "center", // Ensure text is centered
           }}
         >
-          Hi, my name is Stephen.
+          I'm Stephen,
         </Typography>
         <Typography
           variant="h5"
           sx={{
             color: "primary.contrastText",
             fontWeight: 800,
+            textAlign: "center", // Ensure text is centered
           }}
         >
-          I'm a full-stack web developer & UI/UX designer.
+          a full-stack web developer and UI/UX designer.
         </Typography>
       </div>
     </div>
