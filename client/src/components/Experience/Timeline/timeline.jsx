@@ -10,6 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import { motion } from "framer-motion";
+import { Container } from "@mui/material";
 import ExperienceData from "../experiences.json";
 
 export default function TimelineComponent({ events = [] }) {
@@ -17,7 +18,7 @@ export default function TimelineComponent({ events = [] }) {
 
   // Animation variants for the card
   const cardVariants = {
-    hidden: { opacity: 0, x: 100 }, // Start off-screen to the right
+    hidden: { opacity: 0, x: "10%" }, // Reduced off-screen distance
     visible: {
       opacity: 1,
       x: 0,
@@ -29,11 +30,13 @@ export default function TimelineComponent({ events = [] }) {
   };
 
   return (
-    <div
+    <Container
+      maxWidth={false}
       sx={{
-        maxWidth: "1200px", // Constrain the width to a reasonable maximum
-        margin: "0 auto", // Center the entire component horizontally
+        margin: 0,
+        padding: { xs: "0 8px", sm: "0 16px" },
         width: "100%",
+        overflowX: "hidden",
       }}
     >
       <Typography
@@ -57,6 +60,15 @@ export default function TimelineComponent({ events = [] }) {
           "& .MuiTimelineItem-root": {
             paddingLeft: { xs: 0, sm: "16px" },
           },
+          // Prevent rotation of opposite content on mobile
+          "& .MuiTimelineOppositeContent-root": {
+            transform: "none !important", // Disable rotation
+            "@media (max-width: 599px)": {
+              writingMode: "horizontal-tb", // Ensure horizontal text
+              textOrientation: "mixed", // Prevent sideways text
+              textAlign: "center",
+            },
+          },
         }}
       >
         {timelineEvents.map((event, index) => (
@@ -66,11 +78,11 @@ export default function TimelineComponent({ events = [] }) {
                 color: "text.secondary",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center", // Center horizontally
-                textAlign: "center", // Center text
-                typography: { xs: "caption", sm: "body2" }, // Smaller text on mobile
-                flex: { xs: 0.01, sm: 0.15 }, // Narrower on mobile (xs), slightly wider on larger screens (sm)
-                padding: { xs: "6px 4px", sm: "6px 8px" }, // Reduce padding on mobile for compactness
+                justifyContent: "center",
+                textAlign: "center",
+                typography: { xs: "caption", sm: "body2" },
+                flex: { xs: 0.01, sm: 0.15 },
+                padding: { xs: "6px 4px", sm: "6px 8px" },
               }}
             >
               {event.year}
@@ -128,6 +140,6 @@ export default function TimelineComponent({ events = [] }) {
           </TimelineItem>
         ))}
       </Timeline>
-    </div>
+    </Container>
   );
 }

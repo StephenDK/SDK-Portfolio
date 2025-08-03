@@ -8,7 +8,7 @@ import Education from "./components/Education/education";
 import Experience from "./components/Experience/experience";
 import Projects from "./components/Projects/projects";
 import ContactMe from "./components/Contact/contactMe";
-import "./App.css";
+
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);

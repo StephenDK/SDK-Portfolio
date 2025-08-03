@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import { Grid, Typography, Box, Container, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ThemeContext } from "../../../themeContext"; // Ensure ThemeContext is imported
-
-import StarIcon from "@mui/icons-material/Star"; // Star icon for text
+import { ThemeContext } from "../../../themeContext";
+import StarIcon from "@mui/icons-material/Star";
 
 const WhatIDoBackEnd = () => {
   const { mode } = useContext(ThemeContext);
@@ -14,7 +13,7 @@ const WhatIDoBackEnd = () => {
   });
 
   const leftVariants = {
-    hidden: { x: -100, opacity: 0 },
+    hidden: { x: "-10%", opacity: 0 }, // Reduced off-screen distance
     visible: {
       x: 0,
       opacity: 1,
@@ -23,7 +22,7 @@ const WhatIDoBackEnd = () => {
   };
 
   const rightVariants = {
-    hidden: { x: 100, opacity: 0 },
+    hidden: { x: "10%", opacity: 0 }, // Reduced off-screen distance
     visible: {
       x: 0,
       opacity: 1,
@@ -32,11 +31,15 @@ const WhatIDoBackEnd = () => {
   };
 
   return (
-    <Container maxWidth="lg" ref={ref} sx={{ py: 4 }}>
-      <Box sx={{ width: "100%" }}>
+    <Container
+      maxWidth={false} // Full width like ProjectHero
+      sx={{ py: 4, margin: 0, width: "100%", overflowX: "hidden" }}
+      ref={ref}
+    >
+      <Box sx={{ width: "100%", overflowX: "hidden" }}>
         <Grid
           container
-          spacing={{ xs: 2, sm: 4, md: 6, lg: 30 }}
+          spacing={{ xs: 2, sm: 4, md: 6, lg: 8 }} // Reduced lg spacing
           alignItems="center"
           justifyContent="center"
           sx={{ width: "100%" }}

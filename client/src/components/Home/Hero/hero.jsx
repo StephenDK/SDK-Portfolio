@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ThemeContext } from "../../../themeContext";
-import { Typography } from "@mui/material";
+import { Typography, Container } from "@mui/material";
 
 const Hero = () => {
   const { mode } = useContext(ThemeContext);
@@ -12,7 +12,6 @@ const Hero = () => {
   const [shouldAnimate, setShouldAnimate] = useState(true);
   const [currentImage, setCurrentImage] = useState(null);
 
-  // Image paths for different screen sizes and themes, memoized to prevent re-creation
   const images = useMemo(
     () => ({
       light: {
@@ -29,7 +28,6 @@ const Hero = () => {
     []
   );
 
-  // Preload images to prevent white flash
   useEffect(() => {
     setIsMounted(true);
     const preloadImages = Object.values(images.light).concat(
@@ -41,7 +39,6 @@ const Hero = () => {
     });
   }, []);
 
-  // Handle window resize to update screen size
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -50,100 +47,118 @@ const Hero = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Trigger animation only on mode change and update current image
   useEffect(() => {
-    setShouldAnimate(true); // Enable animation when mode changes
-    // Determine which image to use based on window width
+    setShouldAnimate(true);
     const getBackgroundImage = () => {
       if (windowWidth < 600) {
-        return images[mode].mobile; // Mobile: <600px
+        return images[mode].mobile;
       } else if (windowWidth >= 600 && windowWidth < 960) {
-        return images[mode].tablet; // Tablet: 600px to 959px
+        return images[mode].tablet;
       } else {
-        return images[mode].desktop; // Desktop: >=960px
+        return images[mode].desktop;
       }
     };
     setCurrentImage(getBackgroundImage());
   }, [mode, windowWidth, images]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Background Image with Animation */}
-      <motion.div
-        className="absolute inset-0 w-full h-full bg-no-repeat"
-        style={{
-          backgroundImage: currentImage ? `url(${currentImage})` : "none",
-          backgroundSize: windowWidth < 600 ? "cover" : "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: windowWidth < 600 ? "scroll" : "scroll", // Prevents fixed issues on mobile
-          minHeight: "85vh",
-          minWidth: "100vw", // Full viewport width for mobile
-          width: "100%",
-          height: "100%",
-          zIndex: 1,
-          //opacity: 0.5, // Set background image opacity to 0.9
-        }}
-        initial={shouldAnimate ? { y: -100, opacity: 0 } : false}
-        animate={shouldAnimate ? { y: 0, opacity: 0.8 } : false} // Ensure animation respects opacity
-        transition={
-          shouldAnimate
-            ? {
-                y: { type: "spring", stiffness: 50, damping: 20, duration: 2 },
-                opacity: { duration: 1.5 },
-                delay: isMounted ? 0 : 0.4,
-              }
-            : {}
-        }
-        onAnimationComplete={() => setShouldAnimate(false)} // Disable animation after it runs once
-        key={mode} // Key triggers mount/unmount on mode change only
-      />
+    <Container
+      maxWidth={false}
+      sx={{
+        padding: 0,
+        margin: 0,
+        width: "100%",
+        overflowX: "hidden",
+        // Override padding for all screen sizes
+        "&.MuiContainer-root": {
+          paddingLeft: 0,
+          paddingRight: 0,
+          "@media (min-width: 600px)": {
+            paddingLeft: 0,
+            paddingRight: 0,
+          },
+        },
+      }}
+    >
+      <div className="relative w-full h-screen">
+        <motion.div
+          className="absolute inset-0 w-full h-full bg-no-repeat"
+          style={{
+            backgroundImage: currentImage ? `url(${currentImage})` : "none",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "scroll",
+            minHeight: "85vh",
+            width: "100vw",
+            height: "100%",
+            zIndex: 1,
+          }}
+          initial={shouldAnimate ? { y: -100, opacity: 0 } : false}
+          animate={shouldAnimate ? { y: 0, opacity: 0.7 } : false}
+          transition={
+            shouldAnimate
+              ? {
+                  y: { type: "spring", stiffness: 50, damping: 20, duration: 2 },
+                  opacity: { duration: 1.5 },
+                  delay: isMounted ? 0 : 0.4,
+                }
+              : {}
+          }
+          onAnimationComplete={() => setShouldAnimate(false)}
+          key={mode}
+        />
 
-      {/* Overlay for Text Readability */}
-      <div
-        className="absolute inset-0 bg-black bg-opacity-30"
-        style={{ zIndex: 2 }}
-      />
+        <div
+          className="absolute inset-0 bg-black bg-opacity-30"
+          style={{ zIndex: 2 }}
+        />
 
-      {/* Text Content - Centered vertically and horizontally */}
-      <div
-        style={{
-          position: "absolute",
-          zIndex: 3,
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center", // Center vertically
-          alignItems: "center", // Center horizontally
-          width: "100%", // Full width for mobile and desktop
-          padding: windowWidth < 600 ? "0 5%" : "0 13%", // Responsive padding
-          boxSizing: "border-box",
-        }}
-      >
-        <Typography
-          variant="h2"
-          sx={{
-            color: "primary.contrastText",
-            fontWeight: 800,
-            textAlign: "center", // Ensure text is centered
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 3,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            padding: 0,
+            boxSizing: "border-box",
           }}
         >
-          I'm Stephen,
-        </Typography>
-        <Typography
-          variant="h5"
-          sx={{
-            color: "primary.contrastText",
-            fontWeight: 800,
-            textAlign: "center", // Ensure text is centered
-          }}
-        >
-          a full-stack web developer and UI/UX designer.
-        </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              color: "primary.contrastText",
+              fontWeight: 800,
+              textAlign: "center",
+              width: "100%",
+              maxWidth: "100%",
+              px: { xs: 2, sm: 3, md: 4 }, // Small padding for text readability
+            }}
+          >
+            I'm Stephen,
+          </Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              color: "primary.contrastText",
+              fontWeight: 800,
+              textAlign: "center",
+              width: "100%",
+              maxWidth: "100%",
+              px: { xs: 2, sm: 3, md: 4 },
+            }}
+          >
+            a full-stack web developer and UI/UX designer.
+          </Typography>
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
